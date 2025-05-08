@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-photoviewer-dev-d95df-authRole",
+      "UnauthRoleArn": "arn:aws:iam::284907138538:role/amplify-photoviewer-dev-d95df-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::284907138538:role/amplify-photoviewer-dev-d95df-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-photoviewer-dev-d95df-deployment",
+      "UnauthRoleName": "amplify-photoviewer-dev-d95df-unauthRole",
+      "StackName": "amplify-photoviewer-dev-d95df",
+      "StackId": "arn:aws:cloudformation:eu-west-1:284907138538:stack/amplify-photoviewer-dev-d95df/fb4227f0-2c09-11f0-aa16-02690ae4786d",
+      "AmplifyAppId": "d2h70jydmhdax7"
+    }
+  }
+}

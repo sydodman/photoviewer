@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'FuturaPTBook';
+    src: url("../src/assets/fonts/FuturaCyrillicBook.woff") format('woff');
+}
+    
+
+@font-face {
+    font-family: 'FuturaPTLight';
+    src: url("../src/assets/fonts/FuturaCyrillicLight.woff") format('woff');
+}
+    
+@font-face {
+    font-family: 'FuturaPTMedium';
+    src: url("../src/assets/fonts/FuturaCyrillicMedium.woff") format('woff');
+}
+    
+@font-face {
+    font-family: 'FuturaPTDemi';
+    src: url("../src/assets/fonts/FuturaCyrillicDemi.woff") format('woff');
+}
+    
+
+@font-face {
+    font-family: 'FuturaPTHeavy';
+    src: url("../src/assets/fonts/FuturaCyrillicHeavy.woff") format('woff');
+}
+    
+@font-face {
+    font-family: 'FuturaPTBold';
+    src: url("../src/assets/fonts/FuturaCyrillicBold.woff") format('woff');
+}
+    
+@font-face {
+    font-family: 'FuturaPTExtraBold';
+    src: url("../src/assets/fonts/FuturaCyrillicExtraBold.woff") format('woff');
+}
+
+@import "tailwindcss";
+
+@theme {
+    --font-FuturaPTBook: FuturaPTBook, "sans-serif";
+    --font-FuturaPTLight: FuturaPTLight, "sans-serif";
+    --font-FuturaPTMedium: FuturaPTMedium, "sans-serif";
+    --font-FuturaPTDemi: FuturaPTDemi, "sans-serif";
+    --font-FuturaPTHeavy: FuturaPTHeavy, "sans-serif";
+    --font-FuturaPTBold: FuturaPTBold, "sans-serif";
+    --font-FuturaPTExtraBold: FuturaPTExtraBold, "sans-serif";
+}
