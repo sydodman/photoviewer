@@ -16,6 +16,7 @@ export default function App() {
     Year: [], Event: [], Day: [], Team: [], Misc: []
   });
   const [photos, setPhotos] = useState([]);
+  const [moreLikeThisPhoto, setMoreLikeThisPhoto] = useState(null);
 
   // 1) Load Year options on mount
   useEffect(() => {
@@ -177,6 +178,7 @@ export default function App() {
       Year: opts.Year, Event: [], Day: [], Team: [], Misc: []
     }));
     setPhotos([]);
+    setMoreLikeThisPhoto(null); // Also clear the moreLikeThisPhoto when clearing filters
   };
 
   return (
@@ -189,13 +191,18 @@ export default function App() {
           onToggle={toggleFilter}
           onClear={clearFilters}
           photosCount={photos.length}
+          moreLikeThisPhoto={moreLikeThisPhoto}
+          onClearMoreLikeThis={() => setMoreLikeThisPhoto(null)}
         />
 
         {activeFilters.Year.length > 0 &&
          activeFilters.Event.length > 0 &&
          activeFilters.Day.length > 0 &&
          (activeFilters.Team.length > 0 || activeFilters.Misc.length > 0) ? (
-          <ThumbnailGrid photos={photos} />
+          <ThumbnailGrid 
+            photos={photos} 
+            setMoreLikeThisPhoto={setMoreLikeThisPhoto}
+          />
         ) : (
           <div className="flex-1 flex items-center justify-center font-FuturaPTMedium text-xl text-[rgb(1,44,95)] p-4">
             Please select Year ▶ Event ▶ Day ▶ (Team or Misc) to see photos.

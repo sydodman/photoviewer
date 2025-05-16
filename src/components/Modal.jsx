@@ -147,9 +147,10 @@ function ZoomableImage({ children }) {
 }
 
 // --- Modal main component ---
-export default function Modal({ children, onClose }) {
+export default function Modal({ children, onClose, onMoreLikeThis }) {
   const overlayRef = useRef(null);
   const closeBtnRef = useRef(null);
+  const moreLikeThisRef = useRef(null);
 
   // Trap focus inside modal
   useEffect(() => {
@@ -159,7 +160,7 @@ export default function Modal({ children, onClose }) {
       }
       // Trap tab focus
       if (e.key === 'Tab') {
-        const focusable = [closeBtnRef.current];
+        const focusable = [closeBtnRef.current, moreLikeThisRef.current];
         if (focusable.length === 0) return;
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -203,6 +204,27 @@ export default function Modal({ children, onClose }) {
         className="relative bg-transparent outline-none flex items-center justify-center"
         style={{ maxWidth: '90vw', maxHeight: '90vh' }}
       >
+        {/* More like this button */}
+        <button
+          ref={moreLikeThisRef}
+          onClick={onMoreLikeThis}
+          aria-label="More like this"
+          className="absolute top-2 left-2 flex items-center justify-center rounded-full focus:outline-none transition-all duration-100 z-10 border-2"
+          style={{
+            background: 'white',
+            borderColor: 'rgb(1,44,95)',
+            boxShadow: '0 2px 8px rgba(1,44,95,0.10)',
+            cursor: 'pointer',
+            padding: '4px 8px',
+            fontSize: '12px',
+            fontWeight: '500'
+          }}
+          onMouseOver={e => e.currentTarget.style.background = '#9ca3af'} // Match scrollbar/slider hover color
+          onMouseOut={e => e.currentTarget.style.background = 'white'}
+        >
+          More like this
+        </button>
+        
         {/* Close button */}
         <button
           ref={closeBtnRef}
@@ -216,7 +238,7 @@ export default function Modal({ children, onClose }) {
             cursor: 'pointer',
             padding: 0
           }}
-          onMouseOver={e => e.currentTarget.style.background = '#f3f4f6'} // Tailwind gray-100
+          onMouseOver={e => e.currentTarget.style.background = '#9ca3af'} // Match scrollbar/slider hover color
           onMouseOut={e => e.currentTarget.style.background = 'white'}
         >
           <svg 

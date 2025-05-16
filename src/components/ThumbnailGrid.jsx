@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Modal from './Modal';
 
-export default function ThumbnailGrid({ photos }) {
+export default function ThumbnailGrid({ photos, setMoreLikeThisPhoto }) {
   const [fullImage, setFullImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadedImage, setLoadedImage] = useState(null);
@@ -57,7 +57,13 @@ export default function ThumbnailGrid({ photos }) {
       
       {/* Modal with fully loaded image */}
       {loadedImage && !isLoading && (
-        <Modal onClose={handleClose}>
+        <Modal 
+          onClose={handleClose}
+          onMoreLikeThis={() => {
+            setMoreLikeThisPhoto(loadedImage);
+            handleClose();
+          }}
+        >
           <img
             src={loadedImage.hiResUrl}
             alt="Full resolution"
