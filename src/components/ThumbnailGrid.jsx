@@ -60,6 +60,7 @@ export default function ThumbnailGrid({ photos, setMoreLikeThisPhoto }) {
         <Modal 
           onClose={handleClose}
           onMoreLikeThis={() => {
+            console.log('More like this clicked', loadedImage);
             setMoreLikeThisPhoto(loadedImage);
             handleClose();
           }}

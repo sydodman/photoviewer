@@ -9,7 +9,10 @@ export default function Sidebar({
   onClear,
   photosCount,
   moreLikeThisPhoto,
-  onClearMoreLikeThis
+  onClearMoreLikeThis,
+  sliderValue,
+  onSliderChange,
+  isLoadingSimilar
 }) {
   return (
     <aside className="w-58 bg-gray-200 flex flex-col">
@@ -126,8 +129,10 @@ export default function Sidebar({
                 type="range"
                 min="0"
                 max="100"
-                defaultValue="50"
+                value={sliderValue}
+                onChange={(e) => onSliderChange(parseInt(e.target.value, 10))}
                 className="custom-slider"
+                disabled={isLoadingSimilar}
               />
             </div>
           </div>
