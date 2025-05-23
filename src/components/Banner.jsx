@@ -13,7 +13,7 @@ export default function Banner({ title }) {
         <h1 className="text-3xl font-FuturaPTMedium">{title}</h1>
       </div>
       <div className="text-white text-sm font-FuturaPTLight self-end pb-2 pr-2 opacity-80">
-        v2.0
+        v25.5.23
       </div>
     </header>
   );
